@@ -33,8 +33,8 @@ class BorderCountriesApplicationTests {
 
         Country country = new Country();
 
-        Mockito.when(restTemplate.getForEntity("https://date.nager.at/api/v3/CountryInfo/ca", Country.class))
-                .thenReturn(new ResponseEntity<>(country, HttpStatus.OK));
+        Mockito.when(restTemplate.getForObject("https://date.nager.at/api/v3/CountryInfo/ca", Country.class))
+                .thenReturn(country);
         List<String> actual = borderCountriesService.getBorderCountries(countryCode);
 
         Assertions.assertEquals(expected, actual);
