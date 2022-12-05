@@ -10,6 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,10 +20,10 @@ import java.util.List;
 class BorderCountriesApplicationTests {
 
     @Mock
-    RestTemplate restTemplate;
+    BorderCountriesService borderCountriesService;
 
     @InjectMocks
-    BorderCountriesService borderCountriesService;
+    BorderController borderController;
 
     @Test
     void testCorrectCountryCode() {
@@ -31,12 +32,20 @@ class BorderCountriesApplicationTests {
         List<String> expected = new ArrayList<>();
         expected.add("United States");
 
-        Country country = new Country();
-
-        Mockito.when(restTemplate.getForObject("https://date.nager.at/api/v3/CountryInfo/ca", Country.class))
-                .thenReturn(country);
-        List<String> actual = borderCountriesService.getBorderCountries(countryCode);
+        Mockito.when(borderCountriesService.getBorderCountries(countryCode))
+                .thenReturn(expected);
+        List<String> actual = borderController.getBorderCountries(countryCode);
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testIncorrectCountryCode() {
+        String countryCode = "cca";
+
+        Mockito.when(borderCountriesService.getBorderCountries(countryCode))
+                .thenThrow(new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED));
+
+        Assertions.assertThrows(new ResponseStatusException, () -> borderController.getBorderCountries(countryCode));
     }
 }
