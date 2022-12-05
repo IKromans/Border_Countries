@@ -6,7 +6,7 @@ Code is in Java 17, Spring Boot 3.0.0 as framework and Maven 4.0.0 as a build to
 
 To run application :
 
-> clone this repository
+> clone this repository `https://github.com/IKromans/Border_Countries.git`
 
 > run command: `./mvnw spring-boot:run`
 
