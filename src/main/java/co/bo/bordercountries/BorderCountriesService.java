@@ -1,7 +1,6 @@
 package co.bo.bordercountries;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
@@ -9,7 +8,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
 @Service
 public class BorderCountriesService {
 
@@ -17,7 +15,7 @@ public class BorderCountriesService {
 
     public List<String> getBorderCountries(String countryCode) {
         Country rawData = restTemplate.getForObject("https://date.nager.at/api/v3/CountryInfo/" + countryCode, Country.class);
-        if(rawData != null){
+        if (rawData != null) {
             List<Country> borderCountriesList = Arrays.asList(rawData.getBorders());
             return borderCountriesList.stream().map(Country::getCommonName).toList();
         } else {

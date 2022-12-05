@@ -8,13 +8,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class BorderCountriesApplication {
 
-	@Bean
-	public RestTemplate getRestTemplate() {
-		return new RestTemplate();
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(BorderCountriesApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(BorderCountriesApplication.class, args);
+    }
 }

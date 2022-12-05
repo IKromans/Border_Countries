@@ -19,15 +19,7 @@ public class Country implements Serializable {
         return commonName;
     }
 
-    public void setCommonName(String commonName) {
-        this.commonName = commonName;
-    }
-
     public Country[] getBorders() {
         return borders;
-    }
-
-    public void setBorders(Country[] borders) {
-        this.borders = borders;
     }
 }

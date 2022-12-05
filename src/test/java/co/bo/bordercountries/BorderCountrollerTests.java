@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class BorderCountriesApplicationTests {
+class BorderControllerTests {
 
     @Mock
     BorderCountriesService borderCountriesService;
@@ -40,7 +40,7 @@ class BorderCountriesApplicationTests {
     void testIncorrectCountryCode() {
         String countryCode = "cca";
 
-        Mockito.when(borderController.getBorderCountries(countryCode))
+        Mockito.when(borderCountriesService.getBorderCountries(countryCode))
                 .thenThrow(new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED));
 
         Assertions.assertThrows(ResponseStatusException.class, () -> borderController.getBorderCountries(countryCode));
@@ -50,7 +50,7 @@ class BorderCountriesApplicationTests {
     void testApiResponseWhenCountryHasNoBorderCountries() {
         String countryCode = "jp";
 
-        Mockito.when(borderController.getBorderCountries(countryCode))
+        Mockito.when(borderCountriesService.getBorderCountries(countryCode))
                 .thenThrow(new ResponseStatusException(HttpStatus.OK));
 
         Assertions.assertThrows(ResponseStatusException.class, () -> borderController.getBorderCountries(countryCode));
