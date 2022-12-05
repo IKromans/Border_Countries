@@ -43,9 +43,9 @@ class BorderCountriesApplicationTests {
     void testIncorrectCountryCode() {
         String countryCode = "cca";
 
-        Mockito.when(borderCountriesService.getBorderCountries(countryCode))
+        Mockito.when(borderController.getBorderCountries(countryCode))
                 .thenThrow(new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED));
 
-        Assertions.assertThrows(new ResponseStatusException, () -> borderController.getBorderCountries(countryCode));
+        Assertions.assertThrows(ResponseStatusException.class, () -> borderController.getBorderCountries(countryCode));
     }
 }
