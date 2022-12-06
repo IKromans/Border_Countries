@@ -1,6 +1,6 @@
 # Border_Countries
 
-Hey! Welcome to my application that consumes data from https://date.nager.at/ via REST call.
+Hey! Welcome to my application that consumes data from https://date.nager.at/ via REST call and returns border countries for the chosen county.
 
 Code is in Java 17, Spring Boot 3.0.0 as framework and Maven 4.0.0 as a build tool.
 
@@ -8,7 +8,7 @@ To run application :
 
 > clone this repository `https://github.com/IKromans/Border_Countries.git`
 
-> run command: `./mvnw spring-boot:run`
+> run it from your favourite IDE.
 
 > application will be running at `http://localhost:8080/myapp/countries/{countryCode}`
 
@@ -19,6 +19,6 @@ To test "GET" method you can use Postman alternative tool. Just enter country co
 
 To run tests:
 
-> run command: `./mvnw test`
+> locate in folder structure `BorderControllerTests.java` file, run them and check if tests are green.
 
 Enjoy!
