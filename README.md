@@ -12,7 +12,7 @@ To run application :
 
 > application will be running at `http://localhost:8080/myapp/countries/{countryCode}`
 
-To test "GET" method you can use Postman alternative tool. Just enter country code and see how it works.
+To test "GET" method you can use Postman or alternative tool. Just enter country code and see how it works.
 
 ![1](https://user-images.githubusercontent.com/66387211/205746765-90233886-c5ca-4404-8a04-359299087dfd.jpg)
 ![1 1](https://user-images.githubusercontent.com/66387211/205746829-d249aa6a-262a-4e7d-bb26-a5b7b257f994.jpg)
