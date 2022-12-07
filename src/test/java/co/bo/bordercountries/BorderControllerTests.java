@@ -45,14 +45,4 @@ class BorderControllerTests {
 
         Assertions.assertThrows(ResponseStatusException.class, () -> borderController.getBorderCountries(countryCode));
     }
-
-    @Test
-    void testApiResponseWhenCountryHasNoBorderCountries() {
-        String countryCode = "jp";
-
-        Mockito.when(borderCountriesService.getBorderCountries(countryCode))
-                .thenThrow(new ResponseStatusException(HttpStatus.OK));
-
-        Assertions.assertThrows(ResponseStatusException.class, () -> borderController.getBorderCountries(countryCode));
-    }
 }
