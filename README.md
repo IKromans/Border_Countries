@@ -8,7 +8,7 @@ To run application:
 
 > clone this repository `https://github.com/IKromans/Border_Countries.git`
 
-> run `./mvnw spring-boot:run` from console.
+> run `mvnw spring-boot:run` from console.
 
 > application will be running at `http://localhost:8080/myapp/countries/{countryCode}`
 
